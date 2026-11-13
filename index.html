@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111111">
+<title>Premium Fragrance MNR | Mahendranagar</title>
+<style>
+:root{--bg:#0e0e0f;--panel:#19191b;--gold:#d7b66a;--muted:#aaa;--line:#303034;--white:#f7f4ed}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif}
+header{background:linear-gradient(135deg,#111,#292319);border-bottom:1px solid #4b4029;padding:22px 16px;text-align:center}
+.brand{font-family:Georgia,serif;letter-spacing:2px;color:var(--gold);font-size:24px;font-weight:bold}
+.sub{font-size:11px;letter-spacing:2px;color:#ddd;margin-top:7px}
+.tag{font-size:13px;color:#c9c0ad;margin-top:12px}
+.wrap{max-width:1100px;margin:auto;padding:18px 14px 50px}
+.tools{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0 18px}
+input,select,button{font:inherit;border-radius:9px;border:1px solid var(--line);padding:12px;background:#19191b;color:white}
+#search{flex:1;min-width:170px}select{min-width:130px}
+h2{font-family:Georgia,serif;font-weight:normal;color:var(--gold);margin:22px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:13px}
+.product{background:var(--panel);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.product img{width:100%;aspect-ratio:1/1;object-fit:contain;background:#f5f2ec;padding:8px}
+.info{padding:11px}.name{font-weight:bold;font-size:14px;min-height:34px}.category{font-size:11px;color:var(--muted);margin:5px 0}
+.price{color:var(--gold);font-size:19px;font-weight:bold;margin-top:7px}.mrp{color:#888;text-decoration:line-through;font-size:12px;margin-left:6px}
+.stock{font-size:11px;margin:8px 0}.available{color:#7bd69a}.unavailable{color:#ff8585}
+.wa{display:block;text-align:center;text-decoration:none;background:#197b48;color:white;padding:10px;border-radius:8px;font-size:13px;font-weight:bold;margin-top:9px}
+.empty{color:#aaa;text-align:center;padding:35px 10px;grid-column:1/-1}
+footer{text-align:center;color:#888;font-size:12px;border-top:1px solid var(--line);padding:22px}
+.admin-toggle{background:transparent;color:#aaa;border:1px solid #555;font-size:12px;padding:7px 10px}
+#admin{display:none;background:#171719;border:1px solid #51452d;border-radius:14px;padding:15px;margin:22px 0}
+#admin h2{margin-top:0}.formgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:9px}
+#admin input,#admin select{width:100%;min-width:0;margin:4px 0}
+.action{background:var(--gold);color:#17130a;border:0;font-weight:bold;cursor:pointer}
+.secondary{background:#333;border:1px solid #555;cursor:pointer}
+.rowbtn{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.admin-list{font-size:12px;color:#ddd;margin-top:12px}.admin-item{padding:8px 0;border-bottom:1px solid #333;display:flex;justify-content:space-between;gap:8px}
+.note{font-size:12px;color:#aaa;line-height:1.5}.hide{display:none!important}
+@media(min-width:700px){.brand{font-size:30px}.grid{grid-template-columns:repeat(auto-fill,minmax(205px,1fr))}}
+</style>
+</head>
+<body>
+<header>
+ <div class="brand">PREMIUM FRAGRANCE MNR</div>
+ <div class="sub">MAHENDRANAGAR · KANCHANPUR</div>
+ <div class="tag">Elegance in every spray</div>
+</header>
+<main class="wrap">
+ <div class="tools">
+  <input id="search" placeholder="Search perfume..." aria-label="Search perfumes">
+  <select id="category"><option value="">All categories</option><option>Men</option><option>Women</option><option>Unisex</option><option>Attar</option><option>Other</option></select>
+  <select id="availability"><option value="">All stock</option><option value="yes">In stock</option><option value="no">Out of stock</option></select>
+ </div>
+ <h2>Our Fragrance Collection</h2>
+ <div id="products" class="grid"><div class="empty">Loading collection...</div></div>
+
+ <section id="admin">
+  <h2>Admin panel</h2>
+  <div id="loginBox">
+   <p class="note">Admin login only. Customers do not need an account.</p>
+   <input id="email" type="email" placeholder="Admin email" autocomplete="username">
+   <input id="password" type="password" placeholder="Password" autocomplete="current-password">
+   <button class="action" id="loginBtn">Sign in</button>
+   <p id="loginMsg" class="note"></p>
+  </div>
+  <div id="manageBox" class="hide">
+   <p class="note">Add a product photo, name and selling price. Changes appear on the public catalogue.</p>
+   <form id="productForm">
+    <input id="productId" type="hidden">
+    <div class="formgrid">
+     <input id="pname" required placeholder="Perfume name">
+     <select id="pcategory"><option>Men</option><option>Women</option><option>Unisex</option><option>Attar</option><option>Other</option></select>
+     <input id="price" type="number" min="0" required placeholder="Selling price (NPR)">
+     <input id="mrp" type="number" min="0" placeholder="MRP (optional)">
+     <select id="stock"><option value="true">In Stock</option><option value="false">Out of Stock</option></select>
+     <input id="photo" type="file" accept="image/*">
+    </div>
+    <p class="note">Photo is optional when editing. Use a clear bottle photo. Image uploads are stored online.</p>
+    <div class="rowbtn">
+     <button class="action" type="submit" id="saveBtn">Publish product</button>
+     <button class="secondary" type="button" id="cancelEdit">Clear form</button>
+     <button class="secondary" type="button" id="logoutBtn">Sign out</button>
+    </div>
+   </form>
+   <div id="adminList" class="admin-list"></div>
+  </div>
+ </section>
+ <div style="text-align:center;margin-top:22px"><button class="admin-toggle" id="adminToggle">Admin login</button></div>
+</main>
+<footer>Premium Fragrance MNR · Mahendranagar, Kanchanpur<br>For orders and enquiries, contact us on WhatsApp.</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+// SETUP: Replace these 3 values with your own details.
+const SUPABASE_URL = "https://zsuqakuaivxqljqzfnpc.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_aKsyVEwL6wRKN8QRV-Yt_A_m8fZMtfd";
+const WHATSAPP_NUMBER = "9779767681713"; // Nepal number with country code, no + or spaces.
+
+const clientReady = SUPABASE_URL.startsWith("https://") &&
+  !SUPABASE_ANON_KEY.startsWith("PASTE_") &&
+  !SUPABASE_URL.startsWith("PASTE_");
+const db = clientReady ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+let products = [], currentUser = null;
+
+const $ = id => document.getElementById(id);
+const money = n => "Rs. " + Number(n || 0).toLocaleString("en-IN");
+function safe(s){return String(s ?? "").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function waLink(p){
+ const msg = encodeURIComponent(`Namaste! I am interested in ${p.name} (${money(p.price)}). Is it available?`);
+ return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+}
+function render(){
+ const q=$("search").value.toLowerCase().trim(), cat=$("category").value, av=$("availability").value;
+ const filtered=products.filter(p=>(p.name||"").toLowerCase().includes(q)&&(!cat||p.category===cat)&&(!av||(av==="yes" ? p.in_stock : !p.in_stock)));
+ $("products").innerHTML=filtered.length?filtered.map(p=>`
+ <article class="product">
+  <img src="${safe(p.image_url || "https://placehold.co/600x600/f5f2ec/333?text=Perfume")}" alt="${safe(p.name)}">
+  <div class="info"><div class="name">${safe(p.name)}</div>
+  <div class="category">${safe(p.category||"Other")}</div>
+  <div class="price">${money(p.price)} ${p.mrp&&Number(p.mrp)>Number(p.price)?`<span class="mrp">${money(p.mrp)}</span>`:""}</div>
+  <div class="stock ${p.in_stock?"available":"unavailable"}">${p.in_stock?"● In Stock":"● Out of Stock"}</div>
+  ${p.in_stock?`<a class="wa" href="${waLink(p)}" target="_blank" rel="noopener">Order on WhatsApp</a>`:`<span class="note">Currently unavailable</span>`}
+  </div></article>`).join(""):'<div class="empty">No perfumes found. Please check again later.</div>';
+}
+async function loadProducts(){
+ if(!db){$("products").innerHTML='<div class="empty">Website setup is not finished yet. Add your Supabase URL and public key in the setup section of index.html.</div>';return;}
+ const {data,error}=await db.from("products").select("*").order("created_at",{ascending:false});
+ if(error){$("products").innerHTML='<div class="empty">Could not load products. Check your Supabase setup.</div>';console.error(error);return;}
+ products=data||[];render();renderAdminList();
+}
+function showAdmin(){ $("admin").style.display="block"; $("admin").scrollIntoView({behavior:"smooth"}); }
+$("adminToggle").onclick=showAdmin;
+$("search").oninput=render;$("category").onchange=render;$("availability").onchange=render;
+$("loginBtn").onclick=async()=>{
+ $("loginMsg").textContent="Signing in...";
+ const {data,error}=await db.auth.signInWithPassword({email:$("email").value.trim(),password:$("password").value});
+ if(error){$("loginMsg").textContent=error.message;return;}
+ currentUser=data.user;showManage();
+};
+function showManage(){
+ $("loginBox").classList.add("hide");$("manageBox").classList.remove("hide");renderAdminList();
+}
+async function checkSession(){
+ if(!db)return;
+ const {data}=await db.auth.getSession();
+ if(data.session){currentUser=data.session.user;showManage();}
+}
+$("logoutBtn").onclick=async()=>{await db.auth.signOut();currentUser=null;$("manageBox").classList.add("hide");$("loginBox").classList.remove("hide");};
+function clearForm(){
+ $("productForm").reset();$("productId").value="";$("saveBtn").textContent="Publish product";
+}
+$("cancelEdit").onclick=clearForm;
+async function uploadPhoto(file){
+ const ext=(file.name.split(".").pop()||"jpg").toLowerCase().replace(/[^a-z0-9]/g,"");
+ const path=`${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+ const {error}=await db.storage.from("perfume-images").upload(path,file,{upsert:false,contentType:file.type});
+ if(error)throw error;
+ const {data}=db.storage.from("perfume-images").getPublicUrl(path);
+ return data.publicUrl;
+}
+$("productForm").onsubmit=async e=>{
+ e.preventDefault();
+ if(!currentUser){alert("Please sign in first.");return;}
+ $("saveBtn").disabled=true;$("saveBtn").textContent="Saving...";
+ try{
+  const id=$("productId").value;
+  const existing=products.find(p=>p.id===id);
+  let image_url=existing?.image_url||null;
+  const file=$("photo").files[0];if(file)image_url=await uploadPhoto(file);
+  const record={name:$("pname").value.trim(),category:$("pcategory").value,price:Number($("price").value),mrp:$("mrp").value?Number($("mrp").value):null,in_stock:$("stock").value==="true",image_url};
+  let result=id?await db.from("products").update(record).eq("id",id):await db.from("products").insert(record);
+  if(result.error)throw result.error;
+  clearForm();await loadProducts();alert("Product saved and published.");
+ }catch(err){alert("Could not save: "+err.message);}
+ finally{$("saveBtn").disabled=false;$("saveBtn").textContent="Publish product";}
+};
+function renderAdminList(){
+ if(!currentUser)return;
+ $("adminList").innerHTML="<b>Manage published products</b>"+products.map(p=>`
+ <div class="admin-item"><span>${safe(p.name)} — ${money(p.price)}</span><span>
+ <button class="secondary" onclick="editProduct('${p.id}')">Edit</button>
+ <button class="secondary" onclick="deleteProduct('${p.id}')">Delete</button></span></div>`).join("");
+}
+window.editProduct=id=>{
+ const p=products.find(x=>x.id===id);if(!p)return;
+ $("productId").value=p.id;$("pname").value=p.name;$("pcategory").value=p.category||"Other";
+ $("price").value=p.price;$("mrp").value=p.mrp||"";$("stock").value=String(p.in_stock);
+ $("saveBtn").textContent="Update product";$("productForm").scrollIntoView({behavior:"smooth"});
+};
+window.deleteProduct=async id=>{
+ if(!confirm("Delete this product from the catalogue?"))return;
+ const {error}=await db.from("products").delete().eq("id",id);
+ if(error){alert(error.message);return;}await loadProducts();
+};
+if(db){db.auth.onAuthStateChange((_event,session)=>{currentUser=session?.user||null;if(currentUser)showManage();else{$("manageBox").classList.add("hide");$("loginBox").classList.remove("hide");}});}
+loadProducts();checkSession();
+</script>
+</body>
+</html>
