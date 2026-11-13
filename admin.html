@@ -1,90 +1,317 @@
+
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#101010"><title>Private Admin · Premium Fragrance MNR</title>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101010">
+<title>Private Admin · Premium Fragrance MNR</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#101010;color:#f7f3ea;font:15px Arial,sans-serif}
-header{padding:20px;text-align:center;color:#d7b56d;border-bottom:1px solid #55452b}main{max-width:850px;margin:auto;padding:18px}
+*{box-sizing:border-box}
+body{margin:0;background:#101010;color:#f7f3ea;font:15px Arial,sans-serif}
+header{padding:20px;text-align:center;color:#d7b56d;border-bottom:1px solid #55452b}
+main{max-width:850px;margin:auto;padding:18px}
 .panel{background:#1b1b1b;border:1px solid #333;border-radius:12px;padding:16px;margin:14px 0}
 input,select,textarea,button{width:100%;padding:12px;margin:6px 0 12px;border-radius:8px;border:1px solid #555;background:#242424;color:white;font-size:15px}
-button{background:#b58b42;color:#111;font-weight:bold;border:0;cursor:pointer}.danger{background:#8e3030;color:white}.secondary{background:#444;color:white}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.product{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid #444;padding:12px 0}.product button{width:auto;padding:9px;margin:3px}
-.hidden{display:none}.muted{color:#aaa;font-size:13px}h2{color:#d7b56d}
-@media(max-width:550px){.row{grid-template-columns:1fr}.product{align-items:flex-start;flex-direction:column}}
-</style></head>
-<body><header><h1>PREMIUM FRAGRANCE MNR</h1><div>Private Admin Panel</div></header>
+button{background:#b58b42;color:#111;font-weight:bold;border:0;cursor:pointer}
+.danger{background:#8e3030;color:white}
+.secondary{background:#444;color:white}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.product{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid #444;padding:12px 0}
+.product button{width:auto;padding:9px;margin:3px}
+.hidden{display:none}
+.muted{color:#aaa;font-size:13px}
+h2{color:#d7b56d}
+.priceInfo{color:#ddd;line-height:1.7}
+.discount{color:#67d69a;font-weight:bold}
+@media(max-width:550px){
+.row{grid-template-columns:1fr}
+.product{align-items:flex-start;flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>PREMIUM FRAGRANCE MNR</h1>
+<div>Private Admin Panel</div>
+</header>
+
 <main>
-<section id="login" class="panel"><h2>Admin Login</h2><p class="muted">This page is for the store owner only. Do not share this link.</p>
-<label>Email</label><input id="email" type="email" autocomplete="username" placeholder="Your admin email">
-<label>Password</label><input id="password" type="password" autocomplete="current-password" placeholder="Your password">
-<button id="loginBtn">Sign in</button><div id="loginMsg" class="muted"></div></section>
+
+<section id="login" class="panel">
+<h2>Admin Login</h2>
+<p class="muted">This page is for the store owner only. Do not share this link.</p>
+<label>Email</label>
+<input id="email" type="email" autocomplete="username" placeholder="Your admin email">
+<label>Password</label>
+<input id="password" type="password" autocomplete="current-password" placeholder="Your password">
+<button id="loginBtn">Sign in</button>
+<div id="loginMsg" class="muted"></div>
+</section>
+
 <section id="app" class="hidden">
-<div class="panel"><div class="row"><div><h2>Manage perfumes</h2><p class="muted">Changes appear on the customer website.</p></div><div><button id="logoutBtn" class="secondary">Log out</button></div></div>
+
+<div class="panel">
+<div class="row">
+<div>
+<h2>Manage perfumes</h2>
+<p class="muted">Changes appear on the customer website.</p>
+</div>
+<div><button id="logoutBtn" class="secondary">Log out</button></div>
+</div>
+
 <form id="productForm">
 <input id="productId" type="hidden">
-<label>Perfume name</label><input id="name" required placeholder="e.g. Bella Vita Rose">
-<div class="row"><div><label>Selling price (NPR)</label><input id="price" type="number" min="0" required placeholder="999"></div><div><label>Category</label><select id="category"><option>Men</option><option>Women</option><option>Unisex</option><option>Attar</option><option>Other</option></select></div></div>
-<label>Product photo</label><input id="photo" type="file" accept="image/*">
+
+<label>Perfume name</label>
+<input id="name" required placeholder="e.g. Bella Vita Rose">
+
+<div class="row">
+<div>
+<label>Selling price (NPR)</label>
+<input id="price" type="number" min="0" required placeholder="999">
+</div>
+<div>
+<label>MRP (NPR)</label>
+<input id="mrp" type="number" min="0" placeholder="1499">
+</div>
+</div>
+
+<p class="muted">MRP is the original price. Leave blank if you don't want to display it.</p>
+
+<div class="row">
+<div>
+<label>Category</label>
+<select id="category">
+<option>Men</option>
+<option>Women</option>
+<option>Unisex</option>
+<option>Attar</option>
+<option>Other</option>
+</select>
+</div>
+<div>
+<label>Product photo</label>
+<input id="photo" type="file" accept="image/*">
+</div>
+</div>
+
 <label><input id="inStock" type="checkbox" checked style="width:auto"> In stock</label>
-<button type="submit" id="saveBtn">Save perfume</button><button type="button" id="cancelBtn" class="secondary hidden">Cancel edit</button>
-<div id="formMsg" class="muted"></div></form></div>
-<div class="panel"><h2>Your products</h2><div id="list" class="muted">Loading...</div></div>
-</section></main>
+
+<button type="submit" id="saveBtn">Save perfume</button>
+<button type="button" id="cancelBtn" class="secondary hidden">Cancel edit</button>
+<div id="formMsg" class="muted"></div>
+</form>
+</div>
+
+<div class="panel">
+<h2>Your products</h2>
+<div id="list" class="muted">Loading...</div>
+</div>
+
+</section>
+</main>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const SUPABASE_URL="https://zsuqakuaivxqljqzfnpc.supabase.co";
 const SUPABASE_KEY="sb_publishable_aKsyVEwL6wRKN8QRV-Yt_A_m8fZMtfd";
+
 const ready=!SUPABASE_URL.startsWith("PASTE_")&&!SUPABASE_KEY.startsWith("PASTE_");
 let db=null;
+
 if(ready) db=supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
-else document.getElementById('loginMsg').textContent='Website setup is incomplete: add your Supabase URL and publishable key in this file.';
+else document.getElementById('loginMsg').textContent='Website setup is incomplete.';
+
 const $=id=>document.getElementById(id);
+
 $('loginBtn').onclick=async()=>{
  if(!ready)return;
  $('loginMsg').textContent='Signing in...';
- const {error}=await db.auth.signInWithPassword({email:$('email').value.trim(),password:$('password').value});
+ const {error}=await db.auth.signInWithPassword({
+  email:$('email').value.trim(),
+  password:$('password').value
+ });
  $('loginMsg').textContent=error?error.message:'';
- if(!error) showApp();
+ if(!error)showApp();
 };
-$('logoutBtn').onclick=async()=>{await db.auth.signOut();$('app').classList.add('hidden');$('login').classList.remove('hidden');};
+
+$('logoutBtn').onclick=async()=>{
+ await db.auth.signOut();
+ $('app').classList.add('hidden');
+ $('login').classList.remove('hidden');
+};
+
 async function showApp(){
- const {data:{session}}=await db.auth.getSession();if(!session)return;
- $('login').classList.add('hidden');$('app').classList.remove('hidden');loadList();
+ const {data:{session}}=await db.auth.getSession();
+ if(!session)return;
+ $('login').classList.add('hidden');
+ $('app').classList.remove('hidden');
+ loadList();
 }
+
 async function loadList(){
- const {data,error}=await db.from('products').select('*').order('created_at',{ascending:false});
- if(error){$('list').textContent=error.message;return;}
+ $('list').textContent='Loading...';
+ const {data,error}=await db.from('products')
+  .select('*')
+  .order('created_at',{ascending:false});
+
+ if(error){
+  $('list').textContent=error.message;
+  return;
+ }
+
  $('list').innerHTML='';
- if(!data.length){$('list').textContent='No products yet.';return;}
+
+ if(!data.length){
+  $('list').textContent='No products yet.';
+  return;
+ }
+
  data.forEach(p=>{
-  const div=document.createElement('div');div.className='product';
-  const label=document.createElement('div');label.textContent=p.name+' — Rs. '+p.price+' — '+(p.in_stock?'In stock':'Out of stock');
+  const div=document.createElement('div');
+  div.className='product';
+
+  const label=document.createElement('div');
+  label.className='priceInfo';
+
+  const discount=Number(p.mrp)>Number(p.price)
+   ?Math.round((Number(p.mrp)-Number(p.price))/Number(p.mrp)*100)
+   :0;
+
+  label.textContent=
+   p.name+' | Selling: Rs. '+p.price+
+   (p.mrp!=null?' | MRP: Rs. '+p.mrp:'')+
+   (discount?' | '+discount+'% OFF':'')+
+   ' | '+(p.in_stock?'In stock':'Out of stock');
+
   const actions=document.createElement('div');
-  const edit=document.createElement('button');edit.textContent='Edit';edit.onclick=()=>editProduct(p);
-  const del=document.createElement('button');del.textContent='Delete';del.className='danger';del.onclick=()=>deleteProduct(p);
-  actions.append(edit,del);div.append(label,actions);$('list').append(div);
+
+  const edit=document.createElement('button');
+  edit.textContent='Edit';
+  edit.onclick=()=>editProduct(p);
+
+  const del=document.createElement('button');
+  del.textContent='Delete';
+  del.className='danger';
+  del.onclick=()=>deleteProduct(p);
+
+  actions.append(edit,del);
+  div.append(label,actions);
+  $('list').append(div);
  });
 }
-function editProduct(p){$('productId').value=p.id;$('name').value=p.name;$('price').value=p.price;$('category').value=p.category||'Other';$('inStock').checked=!!p.in_stock;$('photo').value='';$('cancelBtn').classList.remove('hidden');$('saveBtn').textContent='Update perfume';window.scrollTo(0,0);}
-function resetForm(){$('productForm').reset();$('productId').value='';$('inStock').checked=true;$('cancelBtn').classList.add('hidden');$('saveBtn').textContent='Save perfume';}
+
+function editProduct(p){
+ $('productId').value=p.id;
+ $('name').value=p.name;
+ $('price').value=p.price;
+ $('mrp').value=p.mrp??'';
+ $('category').value=p.category||'Other';
+ $('inStock').checked=!!p.in_stock;
+ $('photo').value='';
+ $('cancelBtn').classList.remove('hidden');
+ $('saveBtn').textContent='Update perfume';
+ window.scrollTo(0,0);
+}
+
+function resetForm(){
+ $('productForm').reset();
+ $('productId').value='';
+ $('inStock').checked=true;
+ $('cancelBtn').classList.add('hidden');
+ $('saveBtn').textContent='Save perfume';
+}
+
 $('cancelBtn').onclick=resetForm;
+
 $('productForm').onsubmit=async e=>{
- e.preventDefault();$('formMsg').textContent='Saving...';
- let image_url=null;const file=$('photo').files[0];
- if(file){
-  const ext=(file.name.split('.').pop()||'jpg').toLowerCase().replace(/[^a-z0-9]/g,'');
-  const path=crypto.randomUUID()+'.'+ext;
-  const {error:upErr}=await db.storage.from('perfume-images').upload(path,file,{upsert:false});
-  if(upErr){$('formMsg').textContent='Photo upload failed: '+upErr.message;return;}
-  const {data}=db.storage.from('perfume-images').getPublicUrl(path);image_url=data.publicUrl;
+ e.preventDefault();
+ $('formMsg').textContent='Saving...';
+ $('saveBtn').disabled=true;
+
+ try{
+  const sellingPrice=Number($('price').value);
+  const mrpValue=$('mrp').value.trim();
+  const mrp=mrpValue===''?null:Number(mrpValue);
+
+  if(mrp!==null && mrp<sellingPrice){
+   $('formMsg').textContent='MRP should be equal to or higher than selling price.';
+   return;
+  }
+
+  let image_url=null;
+  const file=$('photo').files[0];
+
+  if(file){
+   const ext=(file.name.split('.').pop()||'jpg')
+    .toLowerCase().replace(/[^a-z0-9]/g,'');
+   const path=crypto.randomUUID()+'.'+ext;
+
+   const {error:upErr}=await db.storage
+    .from('perfume-images')
+    .upload(path,file,{upsert:false});
+
+   if(upErr){
+    $('formMsg').textContent='Photo upload failed: '+upErr.message;
+    return;
+   }
+
+   const {data}=db.storage.from('perfume-images').getPublicUrl(path);
+   image_url=data.publicUrl;
+  }
+
+  const payload={
+   name:$('name').value.trim(),
+   price:sellingPrice,
+   mrp:mrp,
+   category:$('category').value,
+   in_stock:$('inStock').checked
+  };
+
+  if(image_url)payload.image_url=image_url;
+
+  let result;
+
+  if($('productId').value){
+   result=await db.from('products')
+    .update(payload)
+    .eq('id',$('productId').value);
+  }else{
+   if(!image_url){
+    $('formMsg').textContent='Please choose a product photo.';
+    return;
+   }
+   result=await db.from('products').insert(payload);
+  }
+
+  if(result.error){
+   $('formMsg').textContent=result.error.message;
+   return;
+  }
+
+  $('formMsg').textContent='Saved successfully!';
+  resetForm();
+  await loadList();
+
+ }catch(err){
+  $('formMsg').textContent=err.message;
+ }finally{
+  $('saveBtn').disabled=false;
  }
- const payload={name:$('name').value.trim(),price:Number($('price').value),category:$('category').value,in_stock:$('inStock').checked};
- if(image_url)payload.image_url=image_url;
- let result;
- if($('productId').value)result=await db.from('products').update(payload).eq('id',$('productId').value);
- else {if(!image_url){$('formMsg').textContent='Please choose a product photo.';return;}result=await db.from('products').insert(payload);}
- if(result.error){$('formMsg').textContent=result.error.message;return;}
- $('formMsg').textContent='Saved successfully.';resetForm();loadList();
 };
-async function deleteProduct(p){if(!confirm('Delete '+p.name+'?'))return;const {error}=await db.from('products').delete().eq('id',p.id);if(error){alert(error.message);return;}loadList();}
-db?.auth.getSession().then(({data})=>{if(data.session)showApp();});
-</script></body></html>
+
+async function deleteProduct(p){
+ if(!confirm('Delete '+p.name+'?'))return;
+ const {error}=await db.from('products').delete().eq('id',p.id);
+ if(error){alert(error.message);return;}
+ loadList();
+}
+
+db?.auth.getSession().then(({data})=>{
+ if(data.session)showApp();
+});
+</script>
+</body>
+</html>
