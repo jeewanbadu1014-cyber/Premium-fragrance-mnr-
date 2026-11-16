@@ -32,8 +32,6 @@ h2{font-family:Georgia,serif;font-weight:normal;color:var(--gold);margin:22px 0 
 .product img{display:block;width:100%;aspect-ratio:1/1;object-fit:contain;padding:8px}
 .info{padding:11px}
 .name{font-weight:bold;font-size:14px;min-height:34px;line-height:1.4}
-
-/* Description directly below perfume name */
 .product-description{
  color:#ccc;
  font-size:12px;
@@ -45,7 +43,6 @@ h2{font-family:Georgia,serif;font-weight:normal;color:var(--gold);margin:22px 0 
  overflow:hidden;
  overflow-wrap:anywhere;
 }
-
 .category{font-size:11px;color:var(--muted);margin:5px 0}
 .sizes{color:#ddd;font-size:12px;margin:8px 0}
 .price{color:var(--gold);font-size:19px;font-weight:bold;margin-top:7px}
@@ -81,7 +78,7 @@ footer{text-align:center;color:#888;font-size:12px;border-top:1px solid var(--li
 .detail h1{font:normal 27px Georgia,serif;color:var(--gold);margin:7px 0 10px}
 .detail-price{font-size:26px;font-weight:bold;color:var(--gold)}
 .detail-mrp{font-size:14px;color:#888;text-decoration:line-through;margin-left:8px}
-.detail-desc{line-height:1.65;color:#ddd;white-space:pre-wrap;margin:15px 0}
+.detail-desc{line-height:1.65;color:#ddd;white-space:pre-wrap;margin:8px 0 15px;overflow-wrap:anywhere}
 .field-label{font-size:13px;color:#ccc;margin:18px 0 8px}
 .size-list{display:flex;gap:8px;flex-wrap:wrap}
 .size-choice{border:1px solid #555;background:#222;color:#eee;padding:10px 14px;border-radius:8px}
@@ -169,6 +166,10 @@ footer{text-align:center;color:#888;font-size:12px;border-top:1px solid var(--li
   <div>
    <div class="detail-brand" id="detailBrand"></div>
    <h1 id="detailName"></h1>
+
+   <!-- DESCRIPTION NOW DIRECTLY BELOW PERFUME NAME -->
+   <div class="detail-desc" id="detailDescription"></div>
+
    <div><span class="detail-price" id="detailPrice"></span><span class="detail-mrp" id="detailMrp"></span></div>
    <div id="detailDiscount"></div>
    <div class="detail-stock" id="detailStock"></div>
@@ -181,7 +182,6 @@ footer{text-align:center;color:#888;font-size:12px;border-top:1px solid var(--li
 
    <div class="field-label">Choose size</div>
    <div class="size-list" id="sizeChoices"></div>
-   <div class="detail-desc" id="detailDescription"></div>
    <div class="muted" id="expiryInfo"></div>
 
    <div class="detail-actions">
@@ -285,37 +285,20 @@ function render(){
 
   return `
   <article class="product" data-product="${safe(p.id)}" tabindex="0" role="button" aria-label="View ${safe(p.name)} details">
-
    <div class="image-box">
     <img src="${safe(img)}" alt="${safe(p.name)}" loading="lazy" onerror="this.src='https://placehold.co/600x600/f5f2ec/333?text=No+Image'">
    </div>
-
    <div class="info">
-
-    <!-- 1. PERFUME NAME -->
     <div class="name">${safe(p.name)}</div>
-
-    <!-- 2. DESCRIPTION: NOW DIRECTLY BELOW NAME -->
     <div class="product-description">${safe(p.description||"")}</div>
-
-    <!-- 3. BRAND -->
     <div class="category">${safe(p.brand||p.category||"Other")}</div>
-
-    <!-- 4. SIZES -->
     <div class="sizes">${opts.length?"Sizes: "+opts.map(o=>safe(o.size)).join(" · "):" "}</div>
-
-    <!-- 5. PRICE -->
     <div class="price">${money(starting)}${mrp?`<span class="mrp">${money(mrp)}</span>`:""}</div>
-
     ${off?`<span class="discount">${off}% OFF</span>`:""}
-
-    <!-- 6. STOCK -->
     <div class="stock ${p.in_stock?"available":"unavailable"}">${p.in_stock?"● In Stock":"● Out of Stock"}</div>
-
     <div class="card-actions">
      <button class="gold-btn" type="button" data-view="${safe(p.id)}">View details</button>
     </div>
-
    </div>
   </article>`;
  }).join(""):'<div class="empty">No perfumes found. Please check again later.</div>';
