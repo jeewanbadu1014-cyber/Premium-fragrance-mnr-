@@ -8,32 +8,114 @@
 <title>Premium Fragrance MNR | Mahendranagar</title>
 <style>
 :root{--bg:#0e0e0f;--panel:#19191b;--gold:#d7b66a;--muted:#aaa;--line:#303034;--white:#f7f4ed;--green:#197b48}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif}body.lock{overflow:hidden}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif}
+body.lock{overflow:hidden}
 header{background:linear-gradient(135deg,#111,#292319);border-bottom:1px solid #4b4029;padding:25px 16px;text-align:center}
-.brand{font-family:Georgia,serif;letter-spacing:2px;color:var(--gold);font-size:24px;font-weight:bold}.sub{font-size:11px;letter-spacing:2px;color:#ddd;margin-top:7px}.tag{font-size:13px;color:#c9c0ad;margin-top:12px}
-.wrap{max-width:1100px;margin:auto;padding:18px 14px 50px}.tools{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0 18px}
-input,select,button{font:inherit;border-radius:9px;border:1px solid var(--line);padding:12px;background:#19191b;color:white}button{cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}#search{flex:1;min-width:170px}select{min-width:130px}
+.brand{font-family:Georgia,serif;letter-spacing:2px;color:var(--gold);font-size:24px;font-weight:bold}
+.sub{font-size:11px;letter-spacing:2px;color:#ddd;margin-top:7px}
+.tag{font-size:13px;color:#c9c0ad;margin-top:12px}
+.wrap{max-width:1100px;margin:auto;padding:18px 14px 50px}
+.tools{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0 18px}
+input,select,button{font:inherit;border-radius:9px;border:1px solid var(--line);padding:12px;background:#19191b;color:white}
+button{cursor:pointer}
+button:disabled{opacity:.5;cursor:not-allowed}
+#search{flex:1;min-width:170px}
+select{min-width:130px}
 h2{font-family:Georgia,serif;font-weight:normal;color:var(--gold);margin:22px 0 12px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:13px}
-.product{background:var(--panel);border:1px solid var(--line);border-radius:13px;overflow:hidden;min-width:0;cursor:pointer;transition:transform .15s,border-color .15s}.product:active{transform:scale(.985)}.image-box{background:#f5f2ec;position:relative}
-.product img{display:block;width:100%;aspect-ratio:1/1;object-fit:contain;padding:8px}.info{padding:11px}.name{font-weight:bold;font-size:14px;min-height:34px;line-height:1.4}.category{font-size:11px;color:var(--muted);margin:5px 0}.sizes{color:#ddd;font-size:12px;margin:8px 0}.price{color:var(--gold);font-size:19px;font-weight:bold;margin-top:7px}.mrp{color:#888;text-decoration:line-through;font-size:12px;margin-left:6px;font-weight:normal}.discount{display:inline-block;color:#7bd69a;background:#173323;padding:4px 7px;border-radius:5px;font-size:11px;margin-top:6px}.stock{font-size:11px;margin:8px 0}.available{color:#7bd69a}.unavailable{color:#ff8585}.empty{color:#aaa;text-align:center;padding:35px 10px;grid-column:1/-1}
-.card-actions{display:flex;gap:7px;margin-top:9px}.card-actions button{flex:1;padding:9px;font-size:12px}.gold-btn{background:#b58b42;color:#111;border:0;font-weight:bold}.wa-btn{display:block;text-align:center;text-decoration:none;background:#197b48;color:white;padding:10px;border-radius:8px;font-size:13px;font-weight:bold}
+.product{background:var(--panel);border:1px solid var(--line);border-radius:13px;overflow:hidden;min-width:0;cursor:pointer;transition:transform .15s,border-color .15s}
+.product:active{transform:scale(.985)}
+.image-box{background:#f5f2ec;position:relative}
+.product img{display:block;width:100%;aspect-ratio:1/1;object-fit:contain;padding:8px}
+.info{padding:11px}
+.name{font-weight:bold;font-size:14px;min-height:34px;line-height:1.4}
+.category{font-size:11px;color:var(--muted);margin:5px 0}
+
+/* Product description directly below name and brand */
+.product-description{
+ color:#ccc;
+ font-size:12px;
+ line-height:1.5;
+ margin:7px 0;
+ display:-webkit-box;
+ -webkit-line-clamp:3;
+ -webkit-box-orient:vertical;
+ overflow:hidden;
+}
+
+.sizes{color:#ddd;font-size:12px;margin:8px 0}
+.price{color:var(--gold);font-size:19px;font-weight:bold;margin-top:7px}
+.mrp{color:#888;text-decoration:line-through;font-size:12px;margin-left:6px;font-weight:normal}
+.discount{display:inline-block;color:#7bd69a;background:#173323;padding:4px 7px;border-radius:5px;font-size:11px;margin-top:6px}
+.stock{font-size:11px;margin:8px 0}
+.available{color:#7bd69a}
+.unavailable{color:#ff8585}
+.empty{color:#aaa;text-align:center;padding:35px 10px;grid-column:1/-1}
+.card-actions{display:flex;gap:7px;margin-top:9px}
+.card-actions button{flex:1;padding:9px;font-size:12px}
+.gold-btn{background:#b58b42;color:#111;border:0;font-weight:bold}
+.wa-btn{display:block;text-align:center;text-decoration:none;background:#197b48;color:white;padding:10px;border-radius:8px;font-size:13px;font-weight:bold}
 .delivery-banner{background:linear-gradient(135deg,#292319,#19191b);border:1px solid #806638;border-radius:12px;padding:14px;margin:16px 0;text-align:center;color:#f7f4ed;line-height:1.6}
 .delivery-banner strong{display:block;color:#d7b66a;font-size:19px;margin-top:3px}
 .delivery-banner .delivery-outside{font-size:13px;color:#ddd;margin-top:5px}
 .detail-delivery{background:#292319;border:1px solid #806638;border-radius:9px;padding:12px;margin:14px 0;color:#eee;font-size:13px;line-height:1.7}
 .detail-delivery strong{color:#d7b66a}
 footer{text-align:center;color:#888;font-size:12px;border-top:1px solid var(--line);padding:22px;line-height:1.8}
-.overlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.88);overflow:auto;padding:16px}.overlay.show{display:block}.detail{max-width:950px;margin:22px auto;background:#171719;border:1px solid #55452b;border-radius:16px;overflow:hidden;position:relative}.close{position:sticky;top:8px;float:right;z-index:5;margin:8px 8px -48px 0;width:40px;height:40px;border-radius:50%;background:#333;color:#fff;font-size:24px;padding:0}
-.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:22px}.gallery-main{background:#f5f2ec;border-radius:12px;position:relative;overflow:hidden}.gallery-main img{width:100%;height:390px;object-fit:contain;display:block;padding:10px;cursor:zoom-in}.thumbs{display:flex;gap:8px;overflow-x:auto;margin-top:10px}.thumbs img{width:65px;height:65px;object-fit:contain;background:#eee;border:2px solid transparent;border-radius:8px;padding:3px;cursor:pointer}.thumbs img.active{border-color:var(--gold)}
-.detail-brand{color:#aaa;font-size:13px;margin:8px 0}.detail h1{font:normal 27px Georgia,serif;color:var(--gold);margin:7px 0 10px}.detail-price{font-size:26px;font-weight:bold;color:var(--gold)}.detail-mrp{font-size:14px;color:#888;text-decoration:line-through;margin-left:8px}.detail-desc{line-height:1.65;color:#ddd;white-space:pre-wrap;margin:15px 0}.field-label{font-size:13px;color:#ccc;margin:18px 0 8px}.size-list{display:flex;gap:8px;flex-wrap:wrap}.size-choice{border:1px solid #555;background:#222;color:#eee;padding:10px 14px;border-radius:8px}.size-choice.active{border-color:var(--gold);background:#382e1c;color:var(--gold)}.detail-stock{margin:14px 0;font-size:13px}.detail-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.detail-actions button,.detail-actions a{flex:1;min-width:130px;text-align:center;text-decoration:none;padding:13px;border-radius:9px;font-weight:bold}.cart-bar{position:fixed;bottom:12px;right:12px;z-index:100;background:#b58b42;color:#111;border:0;border-radius:30px;padding:13px 18px;font-weight:bold;box-shadow:0 4px 18px #0008}.cart-panel{max-width:550px}.cart-items{padding:20px}.cart-row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #333;padding:12px 0}.cart-total{font-size:20px;color:var(--gold);font-weight:bold;margin:18px 0}.muted{color:#aaa;font-size:13px;line-height:1.5}
-#photoZoom{display:none;position:fixed;inset:0;z-index:2000;background:#000f;align-items:center;justify-content:center;padding:15px}#photoZoom.show{display:flex}#photoZoom img{max-width:96%;max-height:90vh;object-fit:contain;touch-action:pinch-zoom}#photoZoom button{position:absolute;right:15px;top:15px;font-size:25px;border:0;background:#333}
-@media(max-width:650px){.brand{font-size:21px}.detail-grid{grid-template-columns:1fr;padding:16px;gap:12px}.gallery-main img{height:300px}.detail h1{font-size:23px}.overlay{padding:7px}.detail{margin:8px auto}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(min-width:800px){.brand{font-size:30px}.grid{grid-template-columns:repeat(auto-fill,minmax(205px,1fr))}}
+.overlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.88);overflow:auto;padding:16px}
+.overlay.show{display:block}
+.detail{max-width:950px;margin:22px auto;background:#171719;border:1px solid #55452b;border-radius:16px;overflow:hidden;position:relative}
+.close{position:sticky;top:8px;float:right;z-index:5;margin:8px 8px -48px 0;width:40px;height:40px;border-radius:50%;background:#333;color:#fff;font-size:24px;padding:0}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:22px}
+.gallery-main{background:#f5f2ec;border-radius:12px;position:relative;overflow:hidden}
+.gallery-main img{width:100%;height:390px;object-fit:contain;display:block;padding:10px;cursor:zoom-in}
+.thumbs{display:flex;gap:8px;overflow-x:auto;margin-top:10px}
+.thumbs img{width:65px;height:65px;object-fit:contain;background:#eee;border:2px solid transparent;border-radius:8px;padding:3px;cursor:pointer}
+.thumbs img.active{border-color:var(--gold)}
+.detail-brand{color:#aaa;font-size:13px;margin:8px 0}
+.detail h1{font:normal 27px Georgia,serif;color:var(--gold);margin:7px 0 10px}
+.detail-price{font-size:26px;font-weight:bold;color:var(--gold)}
+.detail-mrp{font-size:14px;color:#888;text-decoration:line-through;margin-left:8px}
+.detail-desc{line-height:1.65;color:#ddd;white-space:pre-wrap;margin:15px 0}
+.field-label{font-size:13px;color:#ccc;margin:18px 0 8px}
+.size-list{display:flex;gap:8px;flex-wrap:wrap}
+.size-choice{border:1px solid #555;background:#222;color:#eee;padding:10px 14px;border-radius:8px}
+.size-choice.active{border-color:var(--gold);background:#382e1c;color:var(--gold)}
+.detail-stock{margin:14px 0;font-size:13px}
+.detail-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+.detail-actions button,.detail-actions a{flex:1;min-width:130px;text-align:center;text-decoration:none;padding:13px;border-radius:9px;font-weight:bold}
+.cart-bar{position:fixed;bottom:12px;right:12px;z-index:100;background:#b58b42;color:#111;border:0;border-radius:30px;padding:13px 18px;font-weight:bold;box-shadow:0 4px 18px #0008}
+.cart-panel{max-width:550px}
+.cart-items{padding:20px}
+.cart-row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #333;padding:12px 0}
+.cart-total{font-size:20px;color:var(--gold);font-weight:bold;margin:18px 0}
+.muted{color:#aaa;font-size:13px;line-height:1.5}
+#photoZoom{display:none;position:fixed;inset:0;z-index:2000;background:#000f;align-items:center;justify-content:center;padding:15px}
+#photoZoom.show{display:flex}
+#photoZoom img{max-width:96%;max-height:90vh;object-fit:contain;touch-action:pinch-zoom}
+#photoZoom button{position:absolute;right:15px;top:15px;font-size:25px;border:0;background:#333}
+@media(max-width:650px){
+ .brand{font-size:21px}
+ .detail-grid{grid-template-columns:1fr;padding:16px;gap:12px}
+ .gallery-main img{height:300px}
+ .detail h1{font-size:23px}
+ .overlay{padding:7px}
+ .detail{margin:8px auto}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(min-width:800px){
+ .brand{font-size:30px}
+ .grid{grid-template-columns:repeat(auto-fill,minmax(205px,1fr))}
+}
 </style>
 </head>
 <body>
-<header><div class="brand">PREMIUM FRAGRANCE MNR</div><div class="sub">MAHENDRANAGAR · KANCHANPUR</div><div class="tag">Elegance in every spray</div></header>
+<header>
+<div class="brand">PREMIUM FRAGRANCE MNR</div>
+<div class="sub">MAHENDRANAGAR · KANCHANPUR</div>
+<div class="tag">Elegance in every spray</div>
+</header>
+
 <main class="wrap">
  <div class="delivery-banner">
   🚚 DELIVERY INFORMATION
@@ -42,41 +124,69 @@ footer{text-align:center;color:#888;font-size:12px;border-top:1px solid var(--li
  </div>
  <div class="tools">
   <input id="search" placeholder="Search perfume..." aria-label="Search perfumes">
-  <select id="category" aria-label="Filter category"><option value="">All categories</option><option>Men</option><option>Women</option><option>Unisex</option><option>Attar</option><option>Other</option></select>
-  <select id="availability" aria-label="Filter stock"><option value="">All stock</option><option value="yes">In stock</option><option value="no">Out of stock</option></select>
+  <select id="category" aria-label="Filter category">
+   <option value="">All categories</option>
+   <option>Men</option><option>Women</option><option>Unisex</option><option>Attar</option><option>Other</option>
+  </select>
+  <select id="availability" aria-label="Filter stock">
+   <option value="">All stock</option><option value="yes">In stock</option><option value="no">Out of stock</option>
+  </select>
  </div>
  <h2>Our Fragrance Collection</h2>
  <div id="products" class="grid"><div class="empty">Loading collection...</div></div>
 </main>
+
 <footer>Premium Fragrance MNR · Mahendranagar, Kanchanpur<br>For orders and enquiries, contact us on WhatsApp.</footer>
 <button class="cart-bar" id="cartOpen" type="button">Cart (<span id="cartCount">0</span>)</button>
 
-<div class="overlay" id="detailOverlay" aria-hidden="true"><section class="detail">
+<div class="overlay" id="detailOverlay" aria-hidden="true">
+<section class="detail">
  <button class="close" type="button" data-close="detailOverlay" aria-label="Close">×</button>
  <div class="detail-grid">
-  <div><div class="gallery-main"><img id="detailImage" alt="Perfume photo"></div><div class="thumbs" id="thumbs"></div></div>
   <div>
-   <div class="detail-brand" id="detailBrand"></div><h1 id="detailName"></h1>
-   <div><span class="detail-price" id="detailPrice"></span><span class="detail-mrp" id="detailMrp"></span></div><div id="detailDiscount"></div>
+   <div class="gallery-main"><img id="detailImage" alt="Perfume photo"></div>
+   <div class="thumbs" id="thumbs"></div>
+  </div>
+  <div>
+   <div class="detail-brand" id="detailBrand"></div>
+   <h1 id="detailName"></h1>
+   <div><span class="detail-price" id="detailPrice"></span><span class="detail-mrp" id="detailMrp"></span></div>
+   <div id="detailDiscount"></div>
    <div class="detail-stock" id="detailStock"></div>
    <div class="detail-delivery">
     🚚 <strong>Delivery Information</strong><br>
     Inside Mahendranagar: <strong>24–36 hours</strong><br>
     Outside Mahendranagar: <strong>Up to 7 days</strong>, depending on the destination.
    </div>
-   <div class="field-label">Choose size</div><div class="size-list" id="sizeChoices"></div>
+   <div class="field-label">Choose size</div>
+   <div class="size-list" id="sizeChoices"></div>
    <div class="detail-desc" id="detailDescription"></div>
    <div class="muted" id="expiryInfo"></div>
-   <div class="detail-actions"><button class="gold-btn" id="addCart" type="button">Add to cart</button><a class="wa-btn" id="detailWhatsApp" href="#" target="_blank" rel="noopener">Order on WhatsApp</a></div>
+   <div class="detail-actions">
+    <button class="gold-btn" id="addCart" type="button">Add to cart</button>
+    <a class="wa-btn" id="detailWhatsApp" href="#" target="_blank" rel="noopener">Order on WhatsApp</a>
+   </div>
   </div>
  </div>
-</section></div>
+</section>
+</div>
 
-<div class="overlay" id="cartOverlay" aria-hidden="true"><section class="detail cart-panel">
+<div class="overlay" id="cartOverlay" aria-hidden="true">
+<section class="detail cart-panel">
  <button class="close" type="button" data-close="cartOverlay" aria-label="Close">×</button>
- <div class="cart-items"><h2>Your cart</h2><div id="cartItems"></div><div class="cart-total" id="cartTotal"></div><button class="gold-btn" style="width:100%" id="checkout" type="button">Order cart on WhatsApp</button></div>
-</section></div>
-<div id="photoZoom"><button type="button" id="zoomClose">×</button><img id="zoomImage" alt="Zoomed perfume"></div>
+ <div class="cart-items">
+  <h2>Your cart</h2>
+  <div id="cartItems"></div>
+  <div class="cart-total" id="cartTotal"></div>
+  <button class="gold-btn" style="width:100%" id="checkout" type="button">Order cart on WhatsApp</button>
+ </div>
+</section>
+</div>
+
+<div id="photoZoom">
+<button type="button" id="zoomClose">×</button>
+<img id="zoomImage" alt="Zoomed perfume">
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
@@ -88,82 +198,180 @@ const $=id=>document.getElementById(id);
 let products=[],currentProduct=null,currentSize=null,currentImages=[],cart=[];
 const money=n=>"Rs. "+Number(n||0).toLocaleString("en-IN");
 const safe=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-function getSizes(p){if(Array.isArray(p.sizes))return p.sizes.filter(Boolean);if(typeof p.sizes==="string")return p.sizes.split(",").map(x=>x.trim()).filter(Boolean);return []}
+function getSizes(p){
+ if(Array.isArray(p.sizes))return p.sizes.filter(Boolean);
+ if(typeof p.sizes==="string")return p.sizes.split(",").map(x=>x.trim()).filter(Boolean);
+ return [];
+}
 function getOptions(p){
  let opts=Array.isArray(p.size_options)?p.size_options:[];
  if(!opts.length)return getSizes(p).map(size=>({size,price:Number(p.price),mrp:p.mrp==null?null:Number(p.mrp)}));
  return opts.map(o=>({size:String(o.size||""),price:Number(o.price??p.price),mrp:o.mrp==null?null:Number(o.mrp)})).filter(o=>o.size);
 }
-function imagesFor(p){let arr=Array.isArray(p.gallery_urls)?p.gallery_urls:[];return [...new Set([p.image_url,...arr].filter(Boolean))]}
+function imagesFor(p){
+ let arr=Array.isArray(p.gallery_urls)?p.gallery_urls:[];
+ return [...new Set([p.image_url,...arr].filter(Boolean))];
+}
 function waUrl(text){return "https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(text)}
-function productOrderText(p,size,price){return `Namaste! I want to order ${p.name}${p.brand?" by "+p.brand:""}${size?" ("+size+")":""} for ${money(price)}. Please confirm availability and delivery.`}
+function productOrderText(p,size,price){
+ return `Namaste! I want to order ${p.name}${p.brand?" by "+p.brand:""}${size?" ("+size+")":""} for ${money(price)}. Please confirm availability and delivery.`;
+}
 function openOverlay(id){$(id).classList.add("show");document.body.classList.add("lock")}
-function closeOverlay(id){$(id).classList.remove("show");if(!document.querySelector(".overlay.show"))document.body.classList.remove("lock")}
+function closeOverlay(id){
+ $(id).classList.remove("show");
+ if(!document.querySelector(".overlay.show"))document.body.classList.remove("lock");
+}
 document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",()=>closeOverlay(b.dataset.close)));
 document.querySelectorAll(".overlay").forEach(o=>o.addEventListener("click",e=>{if(e.target===o)closeOverlay(o.id)}));
+
 function render(){
  const q=$("search").value.toLowerCase().trim(),cat=$("category").value,av=$("availability").value;
- const filtered=products.filter(p=>(`${p.name||""} ${p.brand||""} ${p.description||""}`).toLowerCase().includes(q)&&(!cat||p.category===cat)&&(!av||(av==="yes"?p.in_stock:!p.in_stock)));
+ const filtered=products.filter(p=>
+  (`${p.name||""} ${p.brand||""} ${p.description||""}`).toLowerCase().includes(q)&&
+  (!cat||p.category===cat)&&
+  (!av||(av==="yes"?p.in_stock:!p.in_stock))
+ );
+
  $("products").innerHTML=filtered.length?filtered.map(p=>{
-  const opts=getOptions(p),starting=opts.length?Math.min(...opts.map(o=>o.price)):Number(p.price);
-  const mrp=Number(p.mrp)>starting?Number(p.mrp):null,off=mrp?Math.round((mrp-starting)/mrp*100):0;
+  const opts=getOptions(p);
+  const starting=opts.length?Math.min(...opts.map(o=>o.price)):Number(p.price);
+  const mrp=Number(p.mrp)>starting?Number(p.mrp):null;
+  const off=mrp?Math.round((mrp-starting)/mrp*100):0;
   const img=imagesFor(p)[0]||"https://placehold.co/600x600/f5f2ec/333?text=Perfume";
+
   return `<article class="product" data-product="${safe(p.id)}" tabindex="0" role="button" aria-label="View ${safe(p.name)} details">
-   <div class="image-box"><img src="${safe(img)}" alt="${safe(p.name)}" loading="lazy" onerror="this.src='https://placehold.co/600x600/f5f2ec/333?text=No+Image'"></div>
-   <div class="info"><div class="name">${safe(p.name)}</div><div class="category">${safe(p.brand||p.category||"Other")}</div>
-   <div class="sizes">${opts.length?"Sizes: "+opts.map(o=>safe(o.size)).join(" · "):" "}</div>
-   <div class="price">${money(starting)}${mrp?`<span class="mrp">${money(mrp)}</span>`:""}</div>${off?`<span class="discount">${off}% OFF</span>`:""}
-   <div class="stock ${p.in_stock?"available":"unavailable"}">${p.in_stock?"● In Stock":"● Out of Stock"}</div>
-   <div class="card-actions"><button class="gold-btn" type="button" data-view="${safe(p.id)}">View details</button></div></div></article>`;
+   <div class="image-box">
+    <img src="${safe(img)}" alt="${safe(p.name)}" loading="lazy" onerror="this.src='https://placehold.co/600x600/f5f2ec/333?text=No+Image'">
+   </div>
+   <div class="info">
+    <div class="name">${safe(p.name)}</div>
+    <div class="category">${safe(p.brand||p.category||"Other")}</div>
+
+    <div class="product-description">${safe(p.description||"")}</div>
+
+    <div class="sizes">${opts.length?"Sizes: "+opts.map(o=>safe(o.size)).join(" · "):" "}</div>
+    <div class="price">${money(starting)}${mrp?`<span class="mrp">${money(mrp)}</span>`:""}</div>
+    ${off?`<span class="discount">${off}% OFF</span>`:""}
+    <div class="stock ${p.in_stock?"available":"unavailable"}">${p.in_stock?"● In Stock":"● Out of Stock"}</div>
+    <div class="card-actions">
+     <button class="gold-btn" type="button" data-view="${safe(p.id)}">View details</button>
+    </div>
+   </div>
+  </article>`;
  }).join(""):'<div class="empty">No perfumes found. Please check again later.</div>';
 }
+
 function showDetails(p){
- currentProduct=p;const opts=getOptions(p);currentSize=opts[0]||{size:"",price:Number(p.price),mrp:p.mrp};
- currentImages=imagesFor(p);if(!currentImages.length)currentImages=["https://placehold.co/600x600/f5f2ec/333?text=Perfume"];
- $("detailImage").src=currentImages[0];$("detailBrand").textContent=p.brand||p.category||"Premium Fragrance";
- $("detailName").textContent=p.name;$("detailDescription").textContent=p.description||"Contact us on WhatsApp for more information about this fragrance.";
+ currentProduct=p;
+ const opts=getOptions(p);
+ currentSize=opts[0]||{size:"",price:Number(p.price),mrp:p.mrp};
+ currentImages=imagesFor(p);
+ if(!currentImages.length)currentImages=["https://placehold.co/600x600/f5f2ec/333?text=Perfume"];
+ $("detailImage").src=currentImages[0];
+ $("detailBrand").textContent=p.brand||p.category||"Premium Fragrance";
+ $("detailName").textContent=p.name;
+ $("detailDescription").textContent=p.description||"Contact us on WhatsApp for more information about this fragrance.";
  $("expiryInfo").textContent=p.expiry_date?"Expiry date: "+p.expiry_date:"";
- $("detailStock").textContent=p.in_stock?"● In stock":"● Currently out of stock";$("detailStock").style.color=p.in_stock?"#7bd69a":"#ff8585";
+ $("detailStock").textContent=p.in_stock?"● In stock":"● Currently out of stock";
+ $("detailStock").style.color=p.in_stock?"#7bd69a":"#ff8585";
  $("thumbs").innerHTML=currentImages.map((src,i)=>`<img src="${safe(src)}" alt="Product photo ${i+1}" class="${i===0?"active":""}" data-image-index="${i}">`).join("");
  $("thumbs").querySelectorAll("img").forEach(t=>t.onclick=()=>selectImage(Number(t.dataset.imageIndex)));
- renderSizeChoices();updateDetailPrice();openOverlay("detailOverlay");
+ renderSizeChoices();
+ updateDetailPrice();
+ openOverlay("detailOverlay");
 }
-function selectImage(i){$("detailImage").src=currentImages[i];$("thumbs").querySelectorAll("img").forEach((t,n)=>t.classList.toggle("active",n===i))}
+function selectImage(i){
+ $("detailImage").src=currentImages[i];
+ $("thumbs").querySelectorAll("img").forEach((t,n)=>t.classList.toggle("active",n===i));
+}
 function renderSizeChoices(){
  const opts=getOptions(currentProduct);
  $("sizeChoices").innerHTML=opts.length?opts.map((o,i)=>`<button type="button" class="size-choice ${i===0?"active":""}" data-size-index="${i}">${safe(o.size)}<br><small>${money(o.price)}</small></button>`).join(""):'<span class="muted">Standard size</span>';
- $("sizeChoices").querySelectorAll("button").forEach(b=>b.onclick=()=>{currentSize=opts[Number(b.dataset.sizeIndex)];$("sizeChoices").querySelectorAll("button").forEach(x=>x.classList.toggle("active",x===b));updateDetailPrice()});
+ $("sizeChoices").querySelectorAll("button").forEach(b=>b.onclick=()=>{
+  currentSize=opts[Number(b.dataset.sizeIndex)];
+  $("sizeChoices").querySelectorAll("button").forEach(x=>x.classList.toggle("active",x===b));
+  updateDetailPrice();
+ });
 }
 function updateDetailPrice(){
- if(!currentSize)return;$("detailPrice").textContent=money(currentSize.price);
+ if(!currentSize)return;
+ $("detailPrice").textContent=money(currentSize.price);
  const mrp=Number(currentSize.mrp)>currentSize.price?Number(currentSize.mrp):(Number(currentProduct.mrp)>currentSize.price?Number(currentProduct.mrp):null);
  $("detailMrp").textContent=mrp?money(mrp):"";
  $("detailDiscount").textContent=mrp?Math.round((mrp-currentSize.price)/mrp*100)+"% OFF":"";
  $("detailWhatsApp").href=waUrl(productOrderText(currentProduct,currentSize.size,currentSize.price));
- $("addCart").disabled=!currentProduct.in_stock;$("detailWhatsApp").style.opacity=currentProduct.in_stock?"1":".45";
+ $("addCart").disabled=!currentProduct.in_stock;
+ $("detailWhatsApp").style.opacity=currentProduct.in_stock?"1":".45";
 }
-$("products").addEventListener("click",e=>{const card=e.target.closest("[data-product]");if(card){const p=products.find(x=>String(x.id)===card.dataset.product);if(p)showDetails(p)}});
-$("products").addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.matches("[data-product]")){e.preventDefault();const p=products.find(x=>String(x.id)===e.target.dataset.product);if(p)showDetails(p)}});
-$("detailImage").onclick=()=>{$("zoomImage").src=$("detailImage").src;$("photoZoom").classList.add("show")};
+$("products").addEventListener("click",e=>{
+ const card=e.target.closest("[data-product]");
+ if(card){
+  const p=products.find(x=>String(x.id)===card.dataset.product);
+  if(p)showDetails(p);
+ }
+});
+$("products").addEventListener("keydown",e=>{
+ if((e.key==="Enter"||e.key===" ")&&e.target.matches("[data-product]")){
+  e.preventDefault();
+  const p=products.find(x=>String(x.id)===e.target.dataset.product);
+  if(p)showDetails(p);
+ }
+});
+$("detailImage").onclick=()=>{
+ $("zoomImage").src=$("detailImage").src;
+ $("photoZoom").classList.add("show");
+};
 $("zoomClose").onclick=()=> $("photoZoom").classList.remove("show");
 $("photoZoom").onclick=e=>{if(e.target===$("photoZoom"))$("photoZoom").classList.remove("show")};
-document.addEventListener("keydown",e=>{if(e.key==="Escape"){$("photoZoom").classList.remove("show");closeOverlay("detailOverlay");closeOverlay("cartOverlay")}});
-$("addCart").onclick=()=>{if(!currentProduct?.in_stock)return;const key=String(currentProduct.id)+"|"+(currentSize?.size||"");const found=cart.find(x=>x.key===key);if(found)found.qty++;else cart.push({key,id:currentProduct.id,name:currentProduct.name,size:currentSize?.size||"",price:currentSize?.price??currentProduct.price,qty:1});updateCart();};
+document.addEventListener("keydown",e=>{
+ if(e.key==="Escape"){
+  $("photoZoom").classList.remove("show");
+  closeOverlay("detailOverlay");
+  closeOverlay("cartOverlay");
+ }
+});
+$("addCart").onclick=()=>{
+ if(!currentProduct?.in_stock)return;
+ const key=String(currentProduct.id)+"|"+(currentSize?.size||"");
+ const found=cart.find(x=>x.key===key);
+ if(found)found.qty++;
+ else cart.push({key,id:currentProduct.id,name:currentProduct.name,size:currentSize?.size||"",price:currentSize?.price??currentProduct.price,qty:1});
+ updateCart();
+};
 function updateCart(){
- const count=cart.reduce((s,x)=>s+x.qty,0);$("cartCount").textContent=count;
+ const count=cart.reduce((s,x)=>s+x.qty,0);
+ $("cartCount").textContent=count;
  $("cartItems").innerHTML=cart.length?cart.map((x,i)=>`<div class="cart-row"><div><b>${safe(x.name)}</b><div class="muted">${safe(x.size)} · ${money(x.price)} × ${x.qty}</div></div><div><b>${money(x.price*x.qty)}</b><br><button type="button" data-remove="${i}" style="padding:5px 9px;margin-top:5px">Remove</button></div></div>`).join(""):'<p class="muted">Your cart is empty.</p>';
- $("cartItems").querySelectorAll("[data-remove]").forEach(b=>b.onclick=()=>{cart.splice(Number(b.dataset.remove),1);updateCart()});
- const total=cart.reduce((s,x)=>s+x.price*x.qty,0);$("cartTotal").textContent=cart.length?"Total: "+money(total):"";
+ $("cartItems").querySelectorAll("[data-remove]").forEach(b=>b.onclick=()=>{
+  cart.splice(Number(b.dataset.remove),1);
+  updateCart();
+ });
+ const total=cart.reduce((s,x)=>s+x.price*x.qty,0);
+ $("cartTotal").textContent=cart.length?"Total: "+money(total):"";
  $("checkout").disabled=!cart.length;
 }
 $("cartOpen").onclick=()=>{updateCart();openOverlay("cartOverlay")};
-$("checkout").onclick=()=>{const lines=cart.map(x=>`${x.name} ${x.size?`(${x.size})`:""} x${x.qty} - ${money(x.price*x.qty)}`);const total=cart.reduce((s,x)=>s+x.price*x.qty,0);location.href=waUrl("Namaste! I would like to order:\n"+lines.join("\n")+"\nTotal: "+money(total)+"\nPlease confirm delivery details.");};
-$("search").addEventListener("input",render);$("category").addEventListener("change",render);$("availability").addEventListener("change",render);
+$("checkout").onclick=()=>{
+ const lines=cart.map(x=>`${x.name} ${x.size?`(${x.size})`:""} x${x.qty} - ${money(x.price*x.qty)}`);
+ const total=cart.reduce((s,x)=>s+x.price*x.qty,0);
+ location.href=waUrl("Namaste! I would like to order:\n"+lines.join("\n")+"\nTotal: "+money(total)+"\nPlease confirm delivery details.");
+};
+$("search").addEventListener("input",render);
+$("category").addEventListener("change",render);
+$("availability").addEventListener("change",render);
+
 async function loadProducts(){
  const {data,error}=await db.from("products").select("*").order("created_at",{ascending:false});
- if(error){$("products").innerHTML='<div class="empty">Could not load products. Please try again later.</div>';console.error(error);return}
- products=data||[];render();
+ if(error){
+  $("products").innerHTML='<div class="empty">Could not load products. Please try again later.</div>';
+  console.error(error);
+  return;
+ }
+ products=data||[];
+ render();
 }
-loadProducts();updateCart();
+loadProducts();
+updateCart();
 </script>
-</body></html>
+</body>
+</html>
